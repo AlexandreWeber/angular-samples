@@ -1,27 +1,19 @@
-# Temas
+# Projetos com exemplos práticos para mostrar algumas funções do angular e do PO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+OK 1. Angular CLI - 10 minutos - demonstração na prática
 
-## Development server
+OK 2. Data Binding - 15 minutos - Vìdeo Loiane
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+OK 3. Diretivas - 30 minutos - Vìdeo Loiane
 
-## Code scaffolding
+OK 4. Módulos e lazy loading - 17 minutos - vídeo Loiane
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+OK 5. Rotas - 40 minutos - Vídeo Loiane + demonstração
 
-## Build
+OK 6. Ciclo de vida do componente - 10 minutos - demonstração na prática
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+OK 7. Pipes - 20 minutos - vídeo Loiane
 
-## Running unit tests
+8. Internacionalização - 20 minutos - Demonstração na prática
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+OK 9. Serviços - 25 minutos - Vídeo Loiane
