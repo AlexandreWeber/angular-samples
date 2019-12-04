@@ -1,19 +1,19 @@
 # Projetos com exemplos práticos para mostrar algumas funções do angular e do PO
 
-OK 1. Angular CLI - 10 minutos - demonstração na prática
+OK 1. Angular CLI
 
-OK 2. Data Binding - 15 minutos - Vìdeo Loiane
+OK 2. Data Binding
 
-OK 3. Diretivas - 30 minutos - Vìdeo Loiane
+OK 3. Diretivas
 
-OK 4. Módulos e lazy loading - 17 minutos - vídeo Loiane
+OK 4. Módulos e lazy loading
 
-OK 5. Rotas - 40 minutos - Vídeo Loiane + demonstração
+OK 5. Rotas
 
-OK 6. Ciclo de vida do componente - 10 minutos - demonstração na prática
+OK 6. Ciclo de vida do componente
 
-OK 7. Pipes - 20 minutos - vídeo Loiane
+OK 7. Pipes
 
 8. Internacionalização - 20 minutos - Demonstração na prática
 
-OK 9. Serviços - 25 minutos - Vídeo Loiane
+OK 9. Serviços

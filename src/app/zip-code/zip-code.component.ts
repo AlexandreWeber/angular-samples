@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IZipCode } from '../shared/model/zip-code';
 import { ZipCodeService } from '../shared/services/zip-code.service';
 
@@ -7,7 +7,9 @@ import { ZipCodeService } from '../shared/services/zip-code.service';
   templateUrl: './zip-code.component.html',
   styleUrls: ['./zip-code.component.scss']
 })
-export class ZipcodeComponent  {
+export class ZipcodeComponent implements OnInit  {
+
+  private lastZipCode = '';
 
   public zipCode: Array<IZipCode>;
 
@@ -15,10 +17,15 @@ export class ZipcodeComponent  {
 
   constructor(public cepService: ZipCodeService) {}
 
+  ngOnInit() {
+    this.lastZipCode = this.cepService.getLastZipCode();
+  }
+
   getCep() {
     this.cepService.getZipCode(this.value)
                    .subscribe((zipCode: IZipCode) => {
         this.zipCode = [zipCode];
+        this.lastZipCode = this.cepService.getLastZipCode();
     });
   }
 

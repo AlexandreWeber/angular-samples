@@ -1,8 +1,9 @@
-<po-page-default p-title="Busca de CEP">
+<po-page-default p-title="Busca de CEP - {{ lastZipCode }}">
 
   <div class="po-row">
     <div class="po-lg-6">
       <po-input [(ngModel)]="value"
+                name="zipCode"
                 p-label="CEP"
                 p-placeholder="Digite o CEP">
       </po-input>

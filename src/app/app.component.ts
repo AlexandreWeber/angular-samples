@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { PoMenuItem } from '@portinari/portinari-ui';
 import { Router } from '@angular/router';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-root',
@@ -15,37 +14,24 @@ export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
     {
-      label: 'Data Binding', action: this.goToData.bind(this)
+      label: 'Data Binding', action: () => this.goTo('/dataBinding')
     },
     {
-      label: 'Diretivas', action: this.goToDiretivas.bind(this)
+      label: 'Diretivas', action: () => this.goTo('/directives')
     },
     {
-      label: 'Serviços - Cep', action: this.goToZipCode.bind(this)
+      label: 'Serviços', action: () => this.goTo('/zipCode')
     },
     {
-      label: 'Pipe', action: this.goToPipe.bind(this)
+      label: 'Pipe', action: () => this.goTo('/pipe')
     },
     {
       label: 'Lifecycle', action: () => this.goTo('/lifecycle')
+    },
+    {
+      label: 'Formulário Reativo', action: () => this.goTo('/reactiveForm')
     }
   ];
-
-  private goToZipCode() {
-    this.router.navigate(['/zipCode']);
-  }
-
-  private goToData() {
-    this.router.navigate(['/dataBinding']);
-  }
-
-  private goToDiretivas() {
-    this.router.navigate(['/directives']);
-  }
-
-  private goToPipe() {
-    this.router.navigate(['/pipe']);
-  }
 
   private goTo(path: string) {
     this.router.navigate([path]);

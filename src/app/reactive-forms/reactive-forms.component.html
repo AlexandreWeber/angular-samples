@@ -1,0 +1,20 @@
+<po-page-default p-title="Novo Usuário"
+                 [p-actions]="newActions">
+  <div class="po-row">
+    <div class="po-lg-6 po-offset-lg-3 po-xl-6 po-offset-xl-3">
+
+      <form [formGroup]="form">
+        <po-input formControlName="name"
+                  [p-error-pattern]="patterns.name"
+                  p-label="Nome">
+        </po-input>
+
+        <po-select formControlName="profession"
+                   p-label="Profissão"
+                   [p-options]="[{label: 'Programador', value: 'Programador'}, {label: 'Analista', value: 'Analista'}]">
+        </po-select>
+      </form>
+
+    </div>
+  </div>
+</po-page-default>
