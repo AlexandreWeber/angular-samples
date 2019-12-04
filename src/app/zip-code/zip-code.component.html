@@ -1,0 +1,23 @@
+<po-page-default p-title="Busca de CEP">
+
+  <div class="po-row">
+    <div class="po-lg-6">
+      <po-input [(ngModel)]="value"
+                p-label="CEP"
+                p-placeholder="Digite o CEP">
+      </po-input>
+    </div>
+  </div>
+
+  <div class="po-row">
+    <div class="po-lg-6">
+      <po-button p-label="Buscar CEP"
+        (p-click)="getCep()">
+      </po-button>
+    </div>
+  </div>
+
+  <po-table [p-items]="zipCode">
+  </po-table>
+
+</po-page-default>

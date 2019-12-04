@@ -1,0 +1,37 @@
+<po-page-default p-title="Data Binding">
+    <po-divider p-label="Interpolação"></po-divider>
+
+    <p>{{ name }}</p>
+
+    <po-divider p-label="Property Binding"></po-divider>
+
+    <po-input p-label="Nome do Projeto"
+              [ngModel]="name">
+    </po-input>
+
+    <po-divider p-label="Event Binding"></po-divider>
+
+    <po-button p-label="Exibir Nome"
+               (p-click)="showName()">
+    </po-button>
+
+    <po-divider p-label="Two-way Data Binding - Banana na caixa"></po-divider>
+
+    <po-input p-label="Nome do Projeto"
+              [(ngModel)]="name">
+    </po-input>
+
+    <po-button
+      p-label="Mudar Nome"
+      (p-click)="changeName()">
+    </po-button>
+
+    <br/><br/>
+    <div style="display: flex; justify-content: center;">
+        <img src="assets/imgs/binding.png"/>
+    </div>
+
+
+    <br/><br/>
+
+</po-page-default>

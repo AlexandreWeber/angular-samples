@@ -1,0 +1,58 @@
+<po-page-default p-title="Diretivas">
+  <po-divider p-label="*ngIf"></po-divider>
+
+  <po-switch p-label="Exibir nome?"
+             [(ngModel)]="isShowName"
+             p-label-off="Não"
+             p-label-on="Sim">
+  </po-switch>
+
+  <po-input p-label="Nome do Projeto"
+            [(ngModel)]="name"
+            *ngIf="isShowName">
+  </po-input>
+
+  <po-divider p-label="*ngFor"></po-divider>
+
+  <po-info *ngFor="let framework of frameworks"
+           p-label="Framework"
+           [p-value]="framework.name">
+  </po-info>
+
+  <po-divider p-label="ngSwitch"></po-divider>
+
+  <po-info p-label="Nome"
+           [p-value]="customer?.name">
+  </po-info>
+
+  <div [ngSwitch]="customer.type">
+    <po-info *ngSwitchCase="1"
+              p-label="Tipo"
+              p-value="Pessoa Física">
+    </po-info>
+
+    <po-info *ngSwitchCase="2"
+              p-label="Tipo"
+              p-value="Pessoa Jurídica">
+    </po-info>
+
+    <po-info *ngSwitchDefault
+              p-label="Tipo"
+              p-value="Tipo inválido">
+    </po-info>
+  </div>
+
+  <po-divider p-label="Diretiva Customizada"></po-divider>
+
+  <p appHighlight>Modernização Datasul</p>
+
+  <po-divider p-label="NgClass"></po-divider>
+
+  <po-switch p-label="Vermelho?"
+    [(ngModel)]="isShowRed"
+    p-label-off="Não"
+    p-label-on="Sim">
+  </po-switch>
+
+  <p [ngClass]="{'blue' : !isShowRed, 'red' : isShowRed}">Modernização Datasul</p>
+</po-page-default>

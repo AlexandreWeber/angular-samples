@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@totvs/portinari-theme/css/po-theme-default.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -87,6 +88,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@totvs/portinari-theme/css/po-theme-default.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -118,6 +120,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "temas"
 }

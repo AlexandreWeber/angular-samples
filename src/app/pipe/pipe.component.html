@@ -1,0 +1,51 @@
+<po-page-default p-title="Pipes">
+
+  <div class="po-row">
+    <po-info p-label="Sexo"
+             class="po-md-3"
+             p-value="{{ 'F' | sexPipe }}">
+    </po-info>
+
+    <po-info p-label="Sexo Sem Pipe"
+             class="po-md-3"
+             p-value="F">
+    </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info p-label="Sexo"
+             class="po-md-3"
+             p-value="{{ 'M' | sexPipe }}">
+    </po-info>
+
+    <po-info p-label="Sexo Sem Pipe"
+             class="po-md-3"
+             p-value="M">
+    </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info p-label="Sexo"
+             class="po-md-3"
+             p-value="{{ 'D' | sexPipe }}">
+    </po-info>
+
+    <po-info p-label="Sexo"
+             class="po-md-3"
+             p-value="D">
+    </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info p-label="Data de Nascimento"
+             class="po-md-3"
+             p-value="{{ birthday | date : 'dd/MM/yyyy' }}">
+    </po-info>
+
+    <po-info p-label="Data de Nascimento"
+             class="po-md-3"
+             p-value="{{ birthday }}">
+    </po-info>
+  </div>
+
+</po-page-default>
