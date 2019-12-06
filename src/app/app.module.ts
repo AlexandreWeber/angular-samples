@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PoModule, PoI18nConfig, PoI18nModule } from '@portinari/portinari-ui';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { actionPt } from './shared/literals/i18n/action-pt';
 import { actionEn } from './shared/literals/i18n/action-en';
 import { actionEs } from './shared/literals/i18n/action-es';
@@ -34,7 +35,6 @@ const i18nConfig: PoI18nConfig = {
     }
   }
 };
-
 
 @NgModule({
   declarations: [

@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./action/action.module').then(m => m.ActionModule)
   },
   {
+    path: 'components',
+    loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./data-binding/data-binding.module').then(m => m.DataBindingModule)
   }

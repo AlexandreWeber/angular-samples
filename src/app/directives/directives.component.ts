@@ -11,6 +11,8 @@ export class DirectivesComponent implements OnInit {
 
   public isShowYellow = true;
 
+  public isShowRed = true;
+
   public name = 'Modernização Datasul';
 
   public frameworks: Array<any> = [

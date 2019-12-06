@@ -33,6 +33,9 @@ export class AppComponent {
     },
     {
       label: 'Ação', action: () => this.goTo('/action')
+    },
+    {
+      label: 'Components', action: () => this.goTo('/components')
     }
   ];
 

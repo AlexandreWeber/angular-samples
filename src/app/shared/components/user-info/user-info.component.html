@@ -1,0 +1,42 @@
+<div class="po-md-12 po-lg-6">
+  <po-widget p-title="Painel do Usuário"
+             (p-primary-action)="userSelected()"
+             p-primary-label="Selecionar Usuário"
+             [p-disabled]="user?.code === selectedUser?.code">
+
+    <div class="po-row">
+      <po-info p-label="Nome"
+               *ngIf="fieldsConfig.name.visible"
+               class="po-md-6"
+               [p-value]="user.name">
+      </po-info>
+
+      <po-info p-label="Email"
+               *ngIf="fieldsConfig.email.visible"
+               class="po-md-6"
+               [p-value]="user.email">
+      </po-info>
+
+      <po-info p-label="Estabelecimento"
+               *ngIf="fieldsConfig.establishment.visible"
+               class="po-md-6"
+               [p-value]="user.establishment">
+      </po-info>
+
+      <po-info p-label="Data Criação"
+               class="po-md-6"
+               [p-value]="user.dateCreated | date : 'dd/MM/yyyy'">
+      </po-info>
+
+      <po-tag [p-value]="getStatusText()"
+              p-label="Situação"
+              class="po-md-6"
+              [p-color]="getStatusColor()">
+      </po-tag>
+    </div>
+
+  </po-widget>
+
+  <po-divider></po-divider>
+
+</div>

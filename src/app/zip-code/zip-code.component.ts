@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { IZipCode } from '../shared/model/zip-code';
 import { ZipCodeService } from '../shared/services/zip-code.service';
 
@@ -9,13 +9,17 @@ import { ZipCodeService } from '../shared/services/zip-code.service';
 })
 export class ZipcodeComponent implements OnInit  {
 
-  private lastZipCode = '';
+  public lastZipCode = '';
 
-  public zipCode: Array<IZipCode>;
+  public zipCode: IZipCode;
 
   public value: string;
 
   constructor(public cepService: ZipCodeService) {}
+
+  @HostListener('enterKey') onEnter() {
+    console.log('enter');
+  }
 
   ngOnInit() {
     this.lastZipCode = this.cepService.getLastZipCode();
@@ -24,7 +28,7 @@ export class ZipcodeComponent implements OnInit  {
   getCep() {
     this.cepService.getZipCode(this.value)
                    .subscribe((zipCode: IZipCode) => {
-        this.zipCode = [zipCode];
+        this.zipCode = zipCode;
         this.lastZipCode = this.cepService.getLastZipCode();
     });
   }

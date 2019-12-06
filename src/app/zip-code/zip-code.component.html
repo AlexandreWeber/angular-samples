@@ -2,12 +2,12 @@
 
   <div class="po-row">
     <div class="po-lg-6">
-      <po-input [(ngModel)]="value"
-                name="zipCode"
-                p-label="CEP"
-                p-placeholder="Digite o CEP">
-      </po-input>
-      <!-- <input name="zipCode"/> -->
+      <po-number [(ngModel)]="value"
+                 name="zipCode"
+                 p-label="CEP"
+                 (keydown.enter)="getCep()"
+                 p-placeholder="Digite o CEP">
+      </po-number>
     </div>
   </div>
 
@@ -19,7 +19,35 @@
     </div>
   </div>
 
-  <po-table [p-items]="zipCode">
-  </po-table>
+  <po-divider></po-divider>
+
+  <div class="po-row" *ngIf="zipCode">
+    <po-info p-label="Nome"
+             class="po-md-3"
+             [p-value]="zipCode?.cep">
+    </po-info>
+
+    <po-info p-label="Rua"
+             class="po-md-3"
+             [p-value]="zipCode?.logradouro">
+    </po-info>
+
+    <po-info p-label="Cidade"
+             class="po-md-3"
+             [p-value]="zipCode?.localidade">
+    </po-info>
+
+    <po-info p-label="UF"
+             class="po-md-3"
+             [p-value]="zipCode?.uf">
+    </po-info>
+
+    <po-info p-label="Bairro"
+             class="po-md-3"
+             [p-value]="zipCode?.bairro">
+    </po-info>
+
+
+  </div>
 
 </po-page-default>
