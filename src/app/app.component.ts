@@ -30,6 +30,9 @@ export class AppComponent {
     },
     {
       label: 'Formulário Reativo', action: () => this.goTo('/reactiveForm')
+    },
+    {
+      label: 'Ação', action: () => this.goTo('/action')
     }
   ];
 

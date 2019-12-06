@@ -43,8 +43,8 @@ export class ReactiveFormsComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', Validators.compose([
                  Validators.required,
-                 Validators.minLength(3)
-      ])],
+                 Validators.minLength(3)])
+      ],
       profession: ['', Validators.required]
     });
 

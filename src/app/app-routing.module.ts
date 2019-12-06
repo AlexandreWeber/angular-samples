@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: () => import('./reactive-forms/reactive-forms.module').then(m => m.ReactiveFormModule)
   },
   {
+    path: 'action',
+    loadChildren: () => import('./action/action.module').then(m => m.ActionModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./data-binding/data-binding.module').then(m => m.DataBindingModule)
   }

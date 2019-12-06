@@ -2,10 +2,11 @@ import { browser, by, element } from 'protractor';
 
 export class AppPage {
   navigateTo() {
-    return browser.get(browser.baseUrl) as Promise<any>;
+    return browser.get(`${browser.baseUrl}zipCode`) as Promise<any>;
   }
 
-  getTitleText() {
-    return element(by.css('app-root h1')).getText() as Promise<string>;
+  async setZipCode(zipCode: string) {
+    await browser.sleep(3000);
+    await element(by.name('zipCode')).sendKeys(zipCode);
   }
 }
