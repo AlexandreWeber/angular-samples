@@ -27,12 +27,12 @@ const routes: Routes = [
     loadChildren: () => import('./reactive-forms/reactive-forms.module').then(m => m.ReactiveFormModule)
   },
   {
-    path: 'action',
-    loadChildren: () => import('./action/action.module').then(m => m.ActionModule)
-  },
-  {
     path: 'components',
     loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
+  },
+  {
+    path: 'department',
+    loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule)
   },
   {
     path: '',

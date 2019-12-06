@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { PoModule, PoI18nPipe } from '@portinari/portinari-ui';
 
-import { ActionService } from '../shared/services/action.service';
-import { ActionEditComponent } from './edit/action.edit.component';
-import { ActionListComponent } from './action.list.component';
-import { ActionRoutingModule } from './action-routing.module';
+import { DepartmentService } from '../shared/services/department.service';
+import { DepartmentEditComponent } from './edit/department.edit.component';
+import { DepartmentListComponent } from './department.list.component';
+import { DepartmentRoutingModule } from './department-routing.module';
+
 import { LoadingInterceptorModule } from '../loading-interceptor.module';
 
 @NgModule({
@@ -19,19 +20,19 @@ import { LoadingInterceptorModule } from '../loading-interceptor.module';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        ActionRoutingModule
+        DepartmentRoutingModule
     ],
     declarations: [
-        ActionListComponent,
-        ActionEditComponent
+        DepartmentListComponent,
+        DepartmentEditComponent
     ],
     exports: [
-        ActionListComponent
+        DepartmentListComponent
     ],
     providers: [
         PoI18nPipe,
-        ActionService
+        DepartmentService
     ],
 })
-export class ActionModule { }
+export class DepartmentModule { }
 

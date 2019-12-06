@@ -6,16 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class SexPipe implements PipeTransform {
 
-  transform(value: string) {
+  transform(value: string, literals: any) {
     switch (value) {
       case 'F': {
-        return 'Feminino';
+        return literals['female']
       }
       case 'M': {
-        return 'Masculino';
+        return literals['male'];
       }
       default: {
-        return 'Inválido';
+        return literals['invalidSex'];
       }
     }
   }

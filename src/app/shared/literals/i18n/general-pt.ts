@@ -1,4 +1,8 @@
 export const generalPt = {
+    male: 'Masculino',
+    female: 'Feminino',
+    invalidSex: 'Valor inválido',
+    dateFormat: 'dd/MM/yyyy',
     action: 'Ação',
     actions: 'Outras Ações',
     add: 'Adicionar',

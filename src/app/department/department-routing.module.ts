@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ActionEditComponent } from './edit/action.edit.component';
-import { ActionListComponent } from './action.list.component';
+import { DepartmentEditComponent } from './edit/department.edit.component';
+import { DepartmentListComponent } from './department.list.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: ActionListComponent,
+        component: DepartmentListComponent,
     },
     {
         path: 'new',
-        component: ActionEditComponent
+        component: DepartmentEditComponent
     },
     {
         path: 'edit/:id',
-        component: ActionEditComponent
+        component: DepartmentEditComponent
     }
 ];
 
@@ -25,4 +25,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class ActionRoutingModule { }
+export class DepartmentRoutingModule { }

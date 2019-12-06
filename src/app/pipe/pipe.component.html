@@ -3,7 +3,7 @@
   <div class="po-row">
     <po-info p-label="Sexo"
              class="po-md-3"
-             p-value="{{ 'F' | sexPipe }}">
+             p-value="{{ 'F' | sexPipe : literals }}">
     </po-info>
 
     <po-info p-label="Sexo Sem Pipe"
@@ -15,7 +15,7 @@
   <div class="po-row">
     <po-info p-label="Sexo"
              class="po-md-3"
-             p-value="{{ 'M' | sexPipe }}">
+             p-value="{{ 'M' | sexPipe : literals }}">
     </po-info>
 
     <po-info p-label="Sexo Sem Pipe"
@@ -27,7 +27,7 @@
   <div class="po-row">
     <po-info p-label="Sexo"
              class="po-md-3"
-             p-value="{{ 'D' | sexPipe }}">
+             p-value="{{ 'D' | sexPipe : literals }}">
     </po-info>
 
     <po-info p-label="Sexo"
@@ -39,7 +39,7 @@
   <div class="po-row">
     <po-info p-label="Data de Nascimento"
              class="po-md-3"
-             p-value="{{ birthday | date : 'dd/MM/yyyy' }}">
+             p-value="{{ birthday | date : literals['dateFormat'] }}">
     </po-info>
 
     <po-info p-label="Data de Nascimento"

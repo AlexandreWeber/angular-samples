@@ -1,9 +1,9 @@
-export const actionEn = {
+export const departmentEn = {
 
-    action: 'action',
+    department: 'department',
 
-    addNewAction: 'addNewAction',
-    editAction: 'editAction',
+    addNewDepartment: 'addNewDepartment',
+    editDepartment: 'editDepartment',
 
     excludeTitle: 'Exclude',
     excludeOne: 'Exclude record',

@@ -11,15 +11,15 @@ import { forkJoin, Subscription } from 'rxjs';
 
 import { TotvsResponse } from '../shared/interfaces/totvs-response.interface';
 
-import { IAction } from '../shared/model/action.model';
-import { ActionService } from '../shared/services/action.service';
+import { IDepartment } from '../shared/model/department.model';
+import { DepartmentService } from '../shared/services/department.service';
 
 @Component({
-    selector: 'app-action',
-    templateUrl: './action.list.component.html',
-    styleUrls: ['./action.list.component.css']
+    selector: 'app-department',
+    templateUrl: './department.list.component.html',
+    styleUrls: ['./department.list.component.css']
 })
-export class ActionListComponent implements OnInit, OnDestroy {
+export class DepartmentListComponent implements OnInit, OnDestroy {
 
     @ViewChild('modalDelete', { static: false }) modalDelete: PoModalComponent;
 
@@ -36,7 +36,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
     disclaimerGroup: PoDisclaimerGroup;
     filterSettings: PoPageFilter;
 
-    items: Array<IAction> = new Array<IAction>();
+    items: Array<IDepartment> = new Array<IDepartment>();
     columns: Array<PoTableColumn>;
 
     hasNext: boolean = false;
@@ -50,7 +50,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
     literals: any = {};
 
     constructor(
-        private service: ActionService,
+        private service: DepartmentService,
         private poI18nPipe: PoI18nPipe,
         private poI18nService: PoI18nService,
         private poNotification: PoNotificationService,
@@ -60,7 +60,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         forkJoin(
             this.poI18nService.getLiterals(),
-            this.poI18nService.getLiterals({ context: 'action' })
+            this.poI18nService.getLiterals({ context: 'department' })
         ).subscribe(literals => {
             literals.map(item => Object.assign(this.literals, item));
             this.setupComponents();
@@ -87,7 +87,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.itemsSubscription$ = this.service
             .query(disclaimer, this.currentPage, this.pageSize)
-            .subscribe((response: TotvsResponse<IAction>) => {
+            .subscribe((response: TotvsResponse<IDepartment>) => {
                 this.items = [...this.items, ...response.items];
                 this.hasNext = response.hasNext;
                 this.isLoading = false;
@@ -100,7 +100,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
         const selected = this.items.filter((item: any) => item.$selected);
 
         if (selected.length > 0) {
-            selected.map((item: IAction) => {
+            selected.map((item: IDepartment) => {
                 this.service.delete(item.id).subscribe(response => {
                     this.poNotification.success(
                         this.poI18nPipe.transform(
@@ -119,8 +119,8 @@ export class ActionListComponent implements OnInit, OnDestroy {
         }
     }
 
-    private edit(item: IAction): void {
-        this.router.navigate(['/action/edit', item.id]);
+    private edit(item: IDepartment): void {
+        this.router.navigate(['/department/edit', item.id]);
     }
 
     private resetFilters(): void {
@@ -169,8 +169,8 @@ export class ActionListComponent implements OnInit, OnDestroy {
 
         this.pageActions = [
             {
-                label: this.literals['addNewAction'],
-                action: () => this.router.navigate(['action/new']), icon: 'po-icon-plus'
+                label: this.literals['addNewDepartment'],
+                action: () => this.router.navigate(['department/new']), icon: 'po-icon-plus'
             },
             { label: this.literals['remove'], action: () => this.deleteModalValidate(), disabled: () => this.selected() }
         ];
@@ -181,7 +181,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
 
         this.breadcrumb = {
             items: [
-                { label: this.literals['action'], link: '/action' }
+                { label: this.literals['department'], link: '/department' }
             ]
         };
 

@@ -13,15 +13,15 @@ import {
 } from '@portinari/portinari-ui';
 
 
-import { IAction, Action } from '../../shared/model/action.model';
-import { ActionService } from '../../shared/services/action.service';
+import { IDepartment, Department } from '../../shared/model/department.model';
+import { DepartmentService } from '../../shared/services/department.service';
 
 @Component({
     selector: 'app-edit',
-    templateUrl: './action.edit.component.html',
-    styleUrls: ['./action.edit.component.css']
+    templateUrl: './department.edit.component.html',
+    styleUrls: ['./department.edit.component.css']
 })
-export class ActionEditComponent implements OnInit, OnDestroy {
+export class DepartmentEditComponent implements OnInit, OnDestroy {
 
     @ViewChild('modalDelete', { static: false }) modalDelete: PoModalComponent;
     @ViewChild('modalCancel', { static: false }) modalCancel: PoModalComponent;
@@ -40,7 +40,7 @@ export class ActionEditComponent implements OnInit, OnDestroy {
     editActions: Array<PoPageAction>;
 
     isPageEdit: boolean;
-    action: IAction = Action.empty();
+    department: IDepartment = Department.empty();
 
     literals: any = {};
     validate: any = { minLgth: 3, maxLgth: 50 };
@@ -51,14 +51,14 @@ export class ActionEditComponent implements OnInit, OnDestroy {
         private poI18nPipe: PoI18nPipe,
         private poI18nService: PoI18nService,
         private poNotification: PoNotificationService,
-        private service: ActionService,
+        private service: DepartmentService,
         private fb: FormBuilder
     ) { }
 
     ngOnInit(): void {
         forkJoin(
             this.poI18nService.getLiterals(),
-            this.poI18nService.getLiterals({ context: 'action' })
+            this.poI18nService.getLiterals({ context: 'department' })
         ).subscribe(literals => {
             literals.map(item => Object.assign(this.literals, item));
             this.createFormControl();
@@ -68,7 +68,7 @@ export class ActionEditComponent implements OnInit, OnDestroy {
 
         this.form.valueChanges.subscribe(
             () => {
-                this.action.name = this.form.controls.name.value;
+                this.department.name = this.form.controls.name.value;
             }
         );
     }
@@ -104,7 +104,7 @@ export class ActionEditComponent implements OnInit, OnDestroy {
             this.modalCancel.open();
         } else {
             this.closeModal();
-            this.router.navigate(['./action']);
+            this.router.navigate(['./department']);
         }
     }
 
@@ -117,8 +117,8 @@ export class ActionEditComponent implements OnInit, OnDestroy {
         const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
         if (id) {
             this.isPageEdit = true;
-            this.service.getById(id).subscribe((item: IAction) => {
-                this.action = item;
+            this.service.getById(id).subscribe((item: IDepartment) => {
+                this.department = item;
                 this.form.setValue({
                     name: item.name
                 });
@@ -127,25 +127,25 @@ export class ActionEditComponent implements OnInit, OnDestroy {
     }
 
     private create() {
-        this.service.create(this.action).subscribe(() => {
-            this.router.navigate(['/action']);
+        this.service.create(this.department).subscribe(() => {
+            this.router.navigate(['/department']);
             this.poNotification.success(this.literals['createdMessage']);
         });
     }
 
     private update() {
-        this.service.update(this.action).subscribe(() => {
-            this.router.navigate(['/action']);
+        this.service.update(this.department).subscribe(() => {
+            this.router.navigate(['/department']);
             this.poNotification.success(this.literals['updatedMessage']);
         });
     }
 
     private delete() {
-        this.service.delete(this.action.id).subscribe(data => {
-            this.router.navigate(['/action']);
+        this.service.delete(this.department.id).subscribe(data => {
+            this.router.navigate(['/department']);
             this.poNotification.success(
                 this.poI18nPipe.transform(
-                    this.literals['excludedMessage'], [this.action.name]
+                    this.literals['excludedMessage'], [this.department.name]
                 )
             );
         });
@@ -162,18 +162,18 @@ export class ActionEditComponent implements OnInit, OnDestroy {
 
         this.cancelModalAction = { label: this.literals['no'], action: this.closeModal.bind(this) };
 
-        this.backModalAction = { label: this.literals['yes'], action: () => this.router.navigate(['./action']) };
+        this.backModalAction = { label: this.literals['yes'], action: () => this.router.navigate(['./department']) };
 
         this.editActions = [
-            { label: this.literals['save'], action: this.update.bind(this, this.action), disabled: () => this.form.invalid },
+            { label: this.literals['save'], action: this.update.bind(this, this.department), disabled: () => this.form.invalid },
             { label: this.literals['remove'], action: () => this.modalDelete.open() },
             { label: this.literals['back'], action: this.checkInteractionOnForm.bind(this, this.form) }
         ];
 
         this.editBreadcrumb = {
             items: [
-                { label: this.literals['action'], link: '/action' },
-                { label: this.literals['edit'], link: '/action/edit' }
+                { label: this.literals['department'], link: '/department' },
+                { label: this.literals['edit'], link: '/department/edit' }
             ]
         };
 
@@ -184,8 +184,8 @@ export class ActionEditComponent implements OnInit, OnDestroy {
 
         this.newBreadcrumb = {
             items: [
-                { label: this.literals['action'], link: '/action' },
-                { label: this.literals['new'], link: '/action/new' }
+                { label: this.literals['department'], link: '/department' },
+                { label: this.literals['new'], link: '/department/new' }
             ]
         };
 

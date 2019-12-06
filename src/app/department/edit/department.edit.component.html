@@ -1,7 +1,7 @@
 <po-page-default
     [p-actions]="isPageEdit ? editActions : newActions"
     [p-breadcrumb]="isPageEdit ? editBreadcrumb : newBreadcrumb"
-    [p-title]="isPageEdit ? literals?.editAction : literals?.addNewAction">
+    [p-title]="isPageEdit ? literals?.editDepartment : literals?.addNewDepartment">
 
     <div class="po-row">
         <div class="po-lg-6 po-offset-lg-3 po-xl-6 po-offset-xl-3">
@@ -39,7 +39,7 @@
     [p-secondary-action]="cancelModalAction"
 >
     <div class="po-font-text-large po-text-left">
-        {{ literals?.excludeText | poI18n: [action.name] }}
+        {{ literals?.excludeText | poI18n: [department.name] }}
     </div>
 </po-modal>
 

@@ -37,13 +37,13 @@ export class Customer implements ICustomer {
     }
 
     static fromJson(json: Array<any> = []) {
-        
+
         const items: Array<ICustomer> = [];
 
         for (const values of json) {
             items.push(new Customer(values));
         }
-        
+
         return items;
     }
 

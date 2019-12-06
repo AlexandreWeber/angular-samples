@@ -1,9 +1,9 @@
-export interface IAction {
+export interface IDepartment {
     id: number;
     name: string;
 }
 
-export class Action implements IAction {
+export class Department implements IDepartment {
 
     id: number;
     name: string;
@@ -29,19 +29,19 @@ export class Action implements IAction {
     }
 
     static of(json: any = {}) {
-        return new Action(json);
+        return new Department(json);
     }
 
     static empty() {
-        return new Action();
+        return new Department();
     }
 
     static fromJson(json: Array<any> = []) {
 
-        const items: Array<IAction> = [];
+        const items: Array<IDepartment> = [];
 
         for (const values of json) {
-            items.push(new Action(values));
+            items.push(new Department(values));
         }
 
         return items;
