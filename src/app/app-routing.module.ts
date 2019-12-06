@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PoPageBlockedUserComponent, PoPageBlockedUserReason } from '@portinari/portinari-templates';
 
 const routes: Routes = [
   {
@@ -33,6 +34,19 @@ const routes: Routes = [
   {
     path: 'department',
     loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule)
+  },
+  {
+    path: 'accessDenied',
+    component: PoPageBlockedUserComponent, data: {
+      contactEmail: 'dev.portinari@portinari.com',
+      contactPhone: '0800 1234 000',
+      reason: 'Você não possui acesso',
+      urlBack: ''
+    }
+  },
+  {
+    path: 'notAllowed',
+    loadChildren: () => import('./not-allowed/not-allowed.module').then(m => m.NotAllowedModule)
   },
   {
     path: '',

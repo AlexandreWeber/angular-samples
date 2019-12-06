@@ -11,6 +11,7 @@ import { DepartmentListComponent } from './department.list.component';
 import { DepartmentRoutingModule } from './department-routing.module';
 
 import { LoadingInterceptorModule } from '../loading-interceptor.module';
+import { AuthGuardService } from '../shared/guards/auth-guard.service';
 
 @NgModule({
     imports: [
@@ -31,7 +32,8 @@ import { LoadingInterceptorModule } from '../loading-interceptor.module';
     ],
     providers: [
         PoI18nPipe,
-        DepartmentService
+        DepartmentService,
+        AuthGuardService
     ],
 })
 export class DepartmentModule { }
