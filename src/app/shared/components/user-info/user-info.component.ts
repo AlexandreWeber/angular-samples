@@ -5,8 +5,7 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  ElementRef }
-from '@angular/core';
+  ElementRef } from '@angular/core';
 
 import { PoNotificationService } from '@portinari/portinari-ui';
 
@@ -23,20 +22,6 @@ export class UserInfoComponent implements OnInit {
   @Input() selectedUser: any;
 
   @Output() onUserSelected = new EventEmitter();
-
-  fieldsConfig =
-  {
-      name: {
-        visible: true
-      },
-      email: {
-        visible: true
-      },
-      establishment: {
-        visible: true
-      }
-  }
-
 
   constructor(private poNotificationService: PoNotificationService) { }
 
