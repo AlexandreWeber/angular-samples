@@ -1,0 +1,16 @@
+<po-page-default p-title="Componentes">
+
+    <div class="po-row">
+      <po-info p-label="Usuário selecionado"
+               class="po-md-6"
+               [p-value]="getSelectedUserName()">
+      </po-info>
+    </div>
+
+    <app-user-info *ngFor="let user of users"
+                   [user]="user"
+                   [selectedUser]="selectedUser"
+                   (onUserSelected)="userSelected($event)">
+    </app-user-info>
+
+</po-page-default>
