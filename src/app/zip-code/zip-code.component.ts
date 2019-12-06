@@ -9,7 +9,7 @@ import { ZipCodeService } from '../shared/services/zip-code.service';
 })
 export class ZipcodeComponent implements OnInit  {
 
-  private lastZipCode = '';
+  public lastZipCode = '';
 
   public zipCode: IZipCode;
 
