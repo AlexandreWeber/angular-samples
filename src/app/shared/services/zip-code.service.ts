@@ -17,11 +17,7 @@ export class ZipCodeService {
   public getZipCode(zipCode: string): Observable<IZipCode> {
     this.lastZipCode = zipCode;
     return this.httpClient
-               .get<IZipCode>(`${this.baseUrl}/${zipCode}/json`)
-               .pipe(map((zip) => {
-                  zip.bairro += ' Alterado';
-                  return zip;
-               }));
+               .get<IZipCode>(`${this.baseUrl}/${zipCode}/json`);
   }
 
   public getLastZipCode(): string {
