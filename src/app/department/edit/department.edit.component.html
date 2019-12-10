@@ -5,10 +5,8 @@
 
     <div class="po-row">
         <div class="po-lg-6 po-offset-lg-3 po-xl-6 po-offset-xl-3">
-            <form [formGroup]="form">
-
+            <form [formGroup]="form" (keyup.enter)="onEnter()">
                 <div>
-
                     <po-input
                         formControlName="name"
                         [p-error-pattern]="errorPattern"
@@ -21,12 +19,11 @@
                         name="name"
                         p-clean>
                     </po-input>
-
                 </div>
-
             </form>
         </div>
     </div>
+
 </po-page-default>
 
 <po-modal
@@ -36,8 +33,7 @@
     p-size="auto"
     [p-title]="literals?.excludeTitle"
     [p-primary-action]="confirmDeleteAction"
-    [p-secondary-action]="cancelModalAction"
->
+    [p-secondary-action]="cancelModalAction">
     <div class="po-font-text-large po-text-left">
         {{ literals?.excludeText | poI18n: [department.name] }}
     </div>
@@ -49,8 +45,7 @@
     p-size="auto"
     [p-title]="literals?.cancelTitle"
     [p-primary-action]="backModalAction"
-    [p-secondary-action]="cancelModalAction"
->
+    [p-secondary-action]="cancelModalAction">
     <div class="po-font-text-large po-text-left">
         {{ literals?.cancelText }}
     </div>
