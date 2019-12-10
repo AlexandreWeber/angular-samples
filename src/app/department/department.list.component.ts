@@ -7,12 +7,13 @@ import {
     PoI18nService, PoI18nPipe, PoNotificationService
 } from '@portinari/portinari-ui';
 
-import { forkJoin, Subscription } from 'rxjs';
+import { forkJoin, Subscription, of, Observable } from 'rxjs';
 
 import { TotvsResponse } from '../shared/interfaces/totvs-response.interface';
 
 import { IDepartment } from '../shared/model/department.model';
 import { DepartmentService } from '../shared/services/department.service';
+import { StorageService } from '../shared/services/storage.service';
 
 @Component({
     selector: 'app-department',
@@ -25,6 +26,9 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
 
     private itemsSubscription$: Subscription;
     private disclaimers: Array<PoDisclaimer> = [];
+
+    readonly DISCLAIMER_STORAGE = 'departamentDisclaimer';
+    readonly QUICK_SEARCH       = 'departamentQuickSearch';
 
     cancelDeleteAction: PoModalAction;
     confirmDeleteAction: PoModalAction;
@@ -55,6 +59,7 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
         private poI18nService: PoI18nService,
         private poNotification: PoNotificationService,
         private router: Router,
+        private storageService: StorageService
     ) { }
 
     ngOnInit(): void {
@@ -71,11 +76,15 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
     searchByName(filter = [{ property: 'name', value: this.quickSearchValue }]): void {
         this.disclaimers = [...filter];
         this.disclaimerGroup.disclaimers = [...this.disclaimers];
+
+        this.saveQuickSearchOnStorage();
     }
 
     search(loadMore = false): void {
 
         const disclaimer = this.disclaimers || [];
+
+        console.log('search', disclaimer);
 
         if (loadMore === true) {
             this.currentPage = this.currentPage + 1;
@@ -125,6 +134,7 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
 
     private resetFilters(): void {
         this.quickSearchValue = '';
+        this.saveQuickSearchOnStorage();
     }
 
     private onChangeDisclaimer(disclaimers): void {
@@ -133,7 +143,9 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
             this.resetFilters();
         }
         this.search();
+        this.saveDisclaimerOnStorage();
     }
+
 
     private onConfirmDelete(): void {
         this.modalDelete.close();
@@ -162,6 +174,7 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
     }
 
     private setupComponents(): void {
+        const disclaimerData = this.storageService.getItem(this.DISCLAIMER_STORAGE);
 
         this.confirmDeleteAction = { action: () => this.onConfirmDelete(), label: this.literals['yes'] };
 
@@ -187,7 +200,7 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
 
         this.disclaimerGroup = {
             title: this.literals['filters'],
-            disclaimers: [],
+            disclaimers: disclaimerData || [],
             change: this.onChangeDisclaimer.bind(this)
         };
 
@@ -196,6 +209,16 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
             ngModel: 'quickSearchValue',
             placeholder: this.literals['search']
         };
+
+        this.quickSearchValue = this.storageService.getItem(this.QUICK_SEARCH);
+    }
+
+    private saveDisclaimerOnStorage() {
+      this.storageService.setItem(this.DISCLAIMER_STORAGE, this.disclaimers);
+    }
+
+    private saveQuickSearchOnStorage() {
+      this.storageService.setItem(this.QUICK_SEARCH, this.quickSearchValue);
     }
 
     ngOnDestroy(): void {
