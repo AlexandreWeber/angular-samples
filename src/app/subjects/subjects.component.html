@@ -1,0 +1,10 @@
+<po-page-default p-title="Temas específicos">
+
+  <po-checkbox *ngFor="let theme of themes"
+               name="checkbox"
+               (p-change)="save(theme)"
+               [(ngModel)]="theme.done"
+               [p-label]="theme.name">
+  </po-checkbox>
+
+</po-page-default>

@@ -14,6 +14,9 @@ export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
     {
+      label: 'Temas Específicos', action: () => this.goTo('/subjects')
+    },
+    {
       label: 'Data Binding', action: () => this.goTo('/dataBinding')
     },
     {

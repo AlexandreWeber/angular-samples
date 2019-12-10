@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { PoModule } from '@portinari/portinari-ui';
 import { DataBindingComponent } from './data-binding.component';
 import { DataBindingRoutingModule } from './data-binding-routing.module';
+import { MyComponent } from '../shared/components/my-component/my-component.componet';
 
 @NgModule({
   declarations: [
-    DataBindingComponent
+    DataBindingComponent,
+    MyComponent
   ],
   imports: [
     CommonModule,

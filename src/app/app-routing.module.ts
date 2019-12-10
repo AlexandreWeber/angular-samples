@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule)
   },
   {
+    path: 'subjects',
+    loadChildren: () => import('./subjects/subjects.module').then(m => m.SubjectsModule)
+  },
+  {
     path: 'accessDenied',
     component: PoPageBlockedUserComponent, data: {
       contactEmail: 'dev.portinari@portinari.com',
@@ -50,7 +54,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./data-binding/data-binding.module').then(m => m.DataBindingModule)
+    loadChildren: () => import('./subjects/subjects.module').then(m => m.SubjectsModule)
   }
 ];
 
