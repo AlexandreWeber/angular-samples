@@ -17,6 +17,9 @@ export class AppComponent {
       label: 'Temas Específicos', action: () => this.goTo('/subjects')
     },
     {
+      label: 'Módulos', action: () => this.goTo('/lazy')
+    },
+    {
       label: 'Data Binding', action: () => this.goTo('/dataBinding')
     },
     {

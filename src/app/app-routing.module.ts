@@ -53,6 +53,10 @@ const routes: Routes = [
     loadChildren: () => import('./not-allowed/not-allowed.module').then(m => m.NotAllowedModule)
   },
   {
+    path: 'lazy',
+    loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./subjects/subjects.module').then(m => m.SubjectsModule)
   }
