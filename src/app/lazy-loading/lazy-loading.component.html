@@ -1,0 +1,23 @@
+<po-page-default p-title="Módulos">
+  <pre>{{ module | json }}</pre>
+
+  <br/>
+
+  <ul>
+    <li>
+      <b>imports: </b>array com outros módulos que são necessários por componentes declarados nesse módulo.<br/>
+      <p class="important">Um componente não pode estar declarado em mais de um módulo!</p>
+    </li>
+    <li>
+      <b>declarations: </b>recebe um array de componentes, diretivas e pipes que fazem parte do módulo.
+    </li>
+    <li>
+      <b>exports: </b>define o conjunto de declarações(componentes, pipes etc) que ficam disponíveis para outros módulos.
+      <p class="important">Se o componente não é usado em outro módulo, não necessário exportá-lo!</p>
+    </li>
+    <li>
+      <b>providers: </b> declara os serviços, se for o módulo root, os serviços ficam disponíveis para toda a aplicação.
+    </li>
+
+  </ul>
+</po-page-default>

@@ -1,0 +1,28 @@
+<po-page-default p-title="Temas específicos">
+
+  <div *ngFor="let theme of themes">
+    <div class="po-row po-md-12">
+      <po-checkbox name="checkbox"
+                   class="po-md-3"
+                   (p-change)="save(theme)"
+                   [(ngModel)]="theme.done"
+                   [p-label]="theme.name">
+      </po-checkbox>
+
+      <po-button p-label="Mão na massa"
+                 *ngIf="theme.hasChallenge"
+                 class="po-md-3"
+                 (p-click)="openTask(theme.name)">
+      </po-button>
+
+      <br/><br/>
+    </div>
+  </div>
+
+</po-page-default>
+
+<po-modal #challengeModal
+          p-size="auto"
+          p-title="Mão na massa">
+  <pre>{{ challengeText }}</pre>
+</po-modal>

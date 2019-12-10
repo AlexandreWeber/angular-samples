@@ -12,6 +12,7 @@ import { DepartmentRoutingModule } from './department-routing.module';
 
 import { LoadingInterceptorModule } from '../loading-interceptor.module';
 import { StorageService } from '../shared/services/storage.service';
+import { AuthGuardService } from '../shared/guards/auth-guard.service';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { StorageService } from '../shared/services/storage.service';
     providers: [
         PoI18nPipe,
         DepartmentService,
-        StorageService
+        StorageService,
+        AuthGuardService
     ],
 })
 export class DepartmentModule { }

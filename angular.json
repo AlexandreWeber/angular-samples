@@ -24,6 +24,11 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              {
+                "glob": "**\/*",
+                "input": "node_modules/@portinari/style/images",
+                "output": "assets/images"
+              },
               "src/assets"
             ],
             "styles": [
@@ -85,6 +90,11 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
+              {
+                "glob": "**\/*",
+                "input": "node_modules/@portinari/style/images",
+                "output": "assets/images"
+              },
               "src/assets"
             ],
             "styles": [

@@ -16,6 +16,8 @@ import { departmentPt } from './shared/literals/i18n/department-pt';
 import { departmentEn } from './shared/literals/i18n/department-en';
 import { departmentEs } from './shared/literals/i18n/department-es';
 
+import { PoPageBlockedUserModule } from '@portinari/portinari-templates';
+
 const i18nConfig: PoI18nConfig = {
   default: {
       context: 'general',
@@ -48,7 +50,8 @@ const i18nConfig: PoI18nConfig = {
     AppRoutingModule,
     PoModule,
     RouterModule.forRoot([]),
-    PoI18nModule.config(i18nConfig)
+    PoI18nModule.config(i18nConfig),
+    PoPageBlockedUserModule
   ],
   providers: [
   ],

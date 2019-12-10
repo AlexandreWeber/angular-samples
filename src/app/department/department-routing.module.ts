@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DepartmentEditComponent } from './edit/department.edit.component';
 import { DepartmentListComponent } from './department.list.component';
+import { AuthGuardService } from '../shared/guards/auth-guard.service';
 
 const routes: Routes = [
     {
@@ -11,7 +12,8 @@ const routes: Routes = [
     },
     {
         path: 'new',
-        component: DepartmentEditComponent
+        component: DepartmentEditComponent,
+        canActivate: [AuthGuardService],
     },
     {
         path: 'edit/:id',

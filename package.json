@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
+    "@portinari/portinari-templates": "^1.19.0",
     "@portinari/portinari-ui": "^1.18.0",
     "@totvs/portinari-theme": "^1.18.0",
     "@totvs/portinari-totvs-corp-theme": "^1.11.0",
